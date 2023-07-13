@@ -5,11 +5,42 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Ch6 debug",
+      "name": "OpcodeCounter",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${command:cmake.launchTargetPath}",
-      "args": ["-emit=mlir-affine", "Ch6/example.toy"],
+      "program": "/root/anaconda3/envs/llvm-tutor/bin/opt",
+      "args": [
+        "-load-pass-plugin", 
+        "build/lib/libOpcodeCounter.so",
+        "--passes=\"default<O0>\"",
+        "-disable-output",
+        "input_for_cc.bc"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+          {
+              "description": "为 gdb 启用整齐打印",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          },
+      ]
+    },
+    {
+      "name": "StaticCallCounter",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/root/anaconda3/envs/llvm-tutor/bin/opt",
+      "args": [
+        "-load-pass-plugin", 
+        "build/lib/libStaticCallCounter.so",
+        "--passes=\"print<static-cc>\"",
+        "-disable-output",
+        "input_for_cc.bc"
+      ],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
