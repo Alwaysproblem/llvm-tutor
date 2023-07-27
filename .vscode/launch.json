@@ -4,6 +4,7 @@
   // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+
     {
       "name": "OpcodeCounter",
       "type": "cppdbg",
@@ -15,6 +16,58 @@
         "--passes=\"default<O0>\"",
         "-disable-output",
         "input_for_cc.bc"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+          {
+              "description": "为 gdb 启用整齐打印",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          },
+      ]
+    },
+    {
+      "name": "RIV",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/root/anaconda3/envs/llvm-tutor/bin/opt",
+      "args": [
+        "-load-pass-plugin", 
+        "build/lib/libRIV.so",
+        "--passes=\"print<riv>\"",
+        "-disable-output",
+        "input_for_riv.ll"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+          {
+              "description": "为 gdb 启用整齐打印",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          },
+      ]
+    },
+    {
+      "name": "duplicateBB",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/root/anaconda3/envs/llvm-tutor/bin/opt",
+      "args": [
+        "-load-pass-plugin", 
+        "build/lib/libRIV.so",
+        "-load-pass-plugin", 
+        "build/lib/libDuplicateBB.so",
+        "--passes=duplicate-bb",
+        "-S",
+        "input_for_duplicate_bb.ll"
       ],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
