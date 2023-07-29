@@ -65,7 +65,10 @@ bool MergeBB::canRemoveInst(const Instruction *Inst) {
   auto *Succ = Inst->getParent()->getTerminator()->getSuccessor(0);
   auto *User = cast<Instruction>(*Inst->user_begin());
 
+  // This means that the instruction is not depends to other blocks.
   bool SameParentBB = (User->getParent() == Inst->getParent());
+  // This means that the instruction is used in a phi node in the successor.
+  // easily update the phi sentence.
   bool UsedInPhi = (PNUse && PNUse->getParent() == Succ &&
                     PNUse->getIncomingValueForBlock(Inst->getParent()) == Inst);
 
