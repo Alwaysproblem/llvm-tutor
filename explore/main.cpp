@@ -43,19 +43,55 @@ int main(int argc, char **argv) {
 
   for (auto &F : *M) {
     for (auto &BB : F) {
-      for (auto &I : BB) {
-        auto *Inst = &I;
-        if (Inst->hasOneUse()){
-          auto *PNUse = dyn_cast<PHINode>(*Inst->user_begin());
-          auto *Succ = Inst->getParent()->getTerminator()->getSuccessor(0);
-          auto *User = cast<Instruction>(*Inst->user_begin());
-          Succ->print(OS);
-
-          bool SameParentBB = (User->getParent() == Inst->getParent());
-          bool UsedInPhi = (PNUse && PNUse->getParent() == Succ &&
-                            PNUse->getIncomingValueForBlock(Inst->getParent()) == Inst);
-        }
+      llvm::outs() << "BB: " << '\n' ;
+      BB.print(OS);
+      llvm::outs() << "BB pre: " << '\n' ;
+      BasicBlock *BBptr = &BB;
+      for (auto BBp : predecessors(BBptr)){
+        BBp->print(OS);
       }
+      llvm::outs() << '\n';
+      // for (auto &I : BB) {
+        // auto *Inst = &I;
+        // if (Inst->hasOneUse()){
+        //   auto *PNUse = dyn_cast<PHINode>(*Inst->user_begin());
+        //   auto *Succ = Inst->getParent()->getTerminator()->getSuccessor(0);
+        //   auto *User = cast<Instruction>(*Inst->user_begin());
+        //   llvm::outs() << "Inst: ";
+        //   Inst->print(OS);
+        //   llvm::outs() << '\n';
+        //   llvm::outs() << "Inst Parents: ";
+        //   Inst->getParent()->print(OS);
+        //   llvm::outs() << '\n';
+
+        //   llvm::outs() << "Inst Parents term: ";
+        //   Inst->getParent()->getTerminator()->print(OS);
+        //   llvm::outs() << '\n';
+
+        //   if (PNUse){
+        //     llvm::outs() << "PNUse: ";
+        //     PNUse->print(OS);
+        //     llvm::outs() << '\n';
+
+        //     llvm::outs() << "PNUse getIncomingValueForBlock: ";
+        //     PNUse->getIncomingValueForBlock(Inst->getParent())->print(OS);
+        //     llvm::outs() << '\n';
+        //   }
+
+        //   if (Succ){
+        //     llvm::outs() << "Succ: ";
+        //     Succ->print(OS);
+        //     llvm::outs() << '\n';
+        //   }
+        //   bool SameParentBB = (User->getParent() == Inst->getParent());
+        //   bool UsedInPhi = (PNUse && PNUse->getParent() == Succ &&
+        //                     PNUse->getIncomingValueForBlock(Inst->getParent()) == Inst);
+          
+        //   llvm::outs() << "SameParentBB: " << SameParentBB << '\n';
+        //   llvm::outs() << "UsedInPhi: " << UsedInPhi << '\n';
+        //   llvm::outs() << "-----------------------------" << '\n';
+        // }
+      // }
     }
   }
 

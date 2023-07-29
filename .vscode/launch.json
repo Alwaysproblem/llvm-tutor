@@ -83,6 +83,31 @@
       ]
     },
     {
+      "name": "MergeBB",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/root/anaconda3/envs/llvm-tutor/bin/opt",
+      "args": [
+        "-load-pass-plugin",
+        "build/lib/libMergeBB.so",
+        "-passes=merge-bb",
+        "-S",
+        "merge.ll"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+          {
+              "description": "为 gdb 启用整齐打印",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          },
+      ]
+    },
+    {
       "name": "StaticCallCounter",
       "type": "cppdbg",
       "request": "launch",
