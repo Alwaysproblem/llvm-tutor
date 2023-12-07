@@ -142,11 +142,11 @@ sudo apt-get install -y llvm-17 llvm-17-dev llvm-17-tools clang-17
 This will install all the required header files, libraries and tools in
 `/usr/lib/llvm-17/`.
 
-## Installing LLVM 16 with conda
+## Installing LLVM 17 with conda
 you can install llvm-16 with conda:
 
 ```bash
-conda install cmake ninja clang-format clang llvm=16.* lit -c conda-forge -y
+conda install cmake ninja clang-format clang llvm=17.* lit -c conda-forge -y
 ```
 
 ## Building LLVM 17 From Sources
