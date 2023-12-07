@@ -3,7 +3,7 @@
   "cmake.debugConfig": {
       "cwd": "${workspaceFolder}",
   },
-  "cmake.cmakePath": "/root/anaconda3/envs/llvm-tutor/bin/cmake",
+  "cmake.cmakePath": "/root/miniconda3/envs/llvm-tutor/bin/cmake",
   "files.associations": {
     "*.py": "python",
     "*.mmd": "mermaid",
@@ -85,12 +85,12 @@
     
     // This is for conda users.
     // "-DMLIR_TABLEGEN_EXE=mlir-tblgen",
-    // "-DMLIR_TABLEGEN_EXE=/root/anaconda3/envs/llvm-tutor/bin/mlir-tblgen",
-    "-DCMAKE_MODULE_PATH=/root/anaconda3/envs/llvm-tutor/lib/cmake/mlir;/root/anaconda3/envs/llvm-tutor/lib/cmake/llvm",
-    "-DLT_LLVM_INSTALL_DIR=/root/anaconda3/envs/llvm-tutor/",
+    // "-DMLIR_TABLEGEN_EXE=/root/miniconda3/envs/llvm-tutor/bin/mlir-tblgen",
+    "-DCMAKE_MODULE_PATH=/root/miniconda3/envs/llvm-tutor/lib/cmake/mlir;/root/miniconda3/envs/llvm-tutor/lib/cmake/llvm",
+    "-DLT_LLVM_INSTALL_DIR=/root/miniconda3/envs/llvm-tutor/",
   ],
   // "cmake.environment": {
-  //   "LD_LIBRARY_PATH": "/root/anaconda3/envs/llvm-tutor/x86_64-conda-linux-gnu/lib:${env.LD_LIBRARY_PATH}"
+  //   "LD_LIBRARY_PATH": "/root/miniconda3/envs/llvm-tutor/x86_64-conda-linux-gnu/lib:${env.LD_LIBRARY_PATH}"
   // },
   
 }

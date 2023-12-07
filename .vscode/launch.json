@@ -9,7 +9,7 @@
       "name": "OpcodeCounter",
       "type": "cppdbg",
       "request": "launch",
-      "program": "/root/anaconda3/envs/llvm-tutor/bin/opt",
+      "program": "/root/miniconda3/envs/llvm-tutor/bin/opt",
       "args": [
         "-load-pass-plugin", 
         "build/lib/libOpcodeCounter.so",
@@ -34,7 +34,7 @@
       "name": "RIV",
       "type": "cppdbg",
       "request": "launch",
-      "program": "/root/anaconda3/envs/llvm-tutor/bin/opt",
+      "program": "/root/miniconda3/envs/llvm-tutor/bin/opt",
       "args": [
         "-load-pass-plugin", 
         "build/lib/libRIV.so",
@@ -59,7 +59,7 @@
       "name": "duplicateBB",
       "type": "cppdbg",
       "request": "launch",
-      "program": "/root/anaconda3/envs/llvm-tutor/bin/opt",
+      "program": "/root/miniconda3/envs/llvm-tutor/bin/opt",
       "args": [
         "-load-pass-plugin", 
         "build/lib/libRIV.so",
@@ -86,7 +86,7 @@
       "name": "MergeBB",
       "type": "cppdbg",
       "request": "launch",
-      "program": "/root/anaconda3/envs/llvm-tutor/bin/opt",
+      "program": "/root/miniconda3/envs/llvm-tutor/bin/opt",
       "args": [
         "-load-pass-plugin",
         "build/lib/libMergeBB.so",
@@ -111,7 +111,7 @@
       "name": "StaticCallCounter",
       "type": "cppdbg",
       "request": "launch",
-      "program": "/root/anaconda3/envs/llvm-tutor/bin/opt",
+      "program": "/root/miniconda3/envs/llvm-tutor/bin/opt",
       "args": [
         "-load-pass-plugin", 
         "build/lib/libStaticCallCounter.so",
